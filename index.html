@@ -5,126 +5,436 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Favorites</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <canvas id="bg-canvas"></canvas>
+
   <header>
-    <p class="eyebrow">Quick Access</p>
-    <h1>My <span>Favorites</span></h1>
-    <div class="divider"></div>
+    <div class="header-meta">
+      <span class="tag">QUICK ACCESS</span>
+      <span class="tag tag-count">31 SITES</span>
+    </div>
+    <h1>Favorites<span class="cursor">_</span></h1>
+    <p class="subtitle"></p>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input
+        id="search"
+        class="search-input"
+        type="text"
+        placeholder="Filter sites..."
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <kbd class="search-kbd">/</kbd>
+    </div>
   </header>
 
-  <p class="section-label">News &amp; Information</p>
-  <div class="grid" id="news">
-    <a class="tile" href="https://news.ycombinator.com" target="_blank" rel="noopener">
-      <div class="tile-icon">🔶</div>
-      <div class="tile-body">
-        <div class="tile-name">Hacker News</div>
-        <div class="tile-desc">Tech news, startups & thoughtful discussion</div>
-      </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-    <a class="tile" href="https://www.bbc.com/news" target="_blank" rel="noopener">
-      <div class="tile-icon">📰</div>
-      <div class="tile-body">
-        <div class="tile-name">BBC News</div>
-        <div class="tile-desc">Global news coverage and journalism</div>
-      </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-    <a class="tile" href="https://www.wikipedia.org" target="_blank" rel="noopener">
-      <div class="tile-icon">📖</div>
-      <div class="tile-body">
-        <div class="tile-name">Wikipedia</div>
-        <div class="tile-desc">The free encyclopedia for everything</div>
-      </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-    <a class="tile" href="https://www.reddit.com" target="_blank" rel="noopener">
-      <div class="tile-icon">🤖</div>
-      <div class="tile-body">
-        <div class="tile-name">Reddit</div>
-        <div class="tile-desc">Communities for every interest</div>
-      </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-  </div>
+  <main>
 
-  <p class="section-label">Productivity &amp; Tools</p>
-  <div class="grid" id="tools">
-    <a class="tile" href="https://github.com" target="_blank" rel="noopener">
-      <div class="tile-icon">🐙</div>
-      <div class="tile-body">
-        <div class="tile-name">GitHub</div>
-        <div class="tile-desc">Code repositories & open-source projects</div>
+    <section>
+      <div class="section-header">
+        <span class="section-num">00</span>
+        <p class="section-label">Daily Puzzles</p>
       </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-    <a class="tile" href="https://www.notion.so" target="_blank" rel="noopener">
-      <div class="tile-icon">📝</div>
-      <div class="tile-body">
-        <div class="tile-name">Notion</div>
-        <div class="tile-desc">Notes, wikis, and project management</div>
+      <div class="grid" id="news">
+        <a class="tile" href="https://leetcode.com/problemset/" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">💻</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">LeetCode</div>
+          <div class="tile-desc">Programming challenges</div>
+        </a>
+        <a class="tile" href="https://dailyintegral.com/" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">∫</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">DailyIntegral</div>
+          <div class="tile-desc">Daily Calculus problems</div>
+        </a>
+        <a class="tile" href="https://www.nytimes.com/puzzles" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🧩</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">NYT Games</div>
+          <div class="tile-desc">Critical thinking puzzles</div>
+        </a>
+        <a class="tile" href="https://www.geoguessr.com/quiz/seterra" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🌍</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">GeoGuessr</div>
+          <div class="tile-desc">Geographic guessing game</div>
+        </a>
+        <a class="tile" href="https://brilliant.org/" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🧠</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Brilliant</div>
+          <div class="tile-desc">Mathematical and scientific problems</div>
+        </a>
+        <a class="tile" href="https://projecteuler.net/about" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🔢</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Project Euler</div>
+          <div class="tile-desc">Mathematical programming problems</div>
+        </a>
+        <a class="tile" href="https://www.chess.com/home" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">♟️</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Chess</div>
+          <div class="tile-desc">Online chess platform</div>
+        </a>
       </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-    <a class="tile" href="https://www.figma.com" target="_blank" rel="noopener">
-      <div class="tile-icon">🎨</div>
-      <div class="tile-body">
-        <div class="tile-name">Figma</div>
-        <div class="tile-desc">Collaborative interface design tool</div>
-      </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-    <a class="tile" href="https://calendar.google.com" target="_blank" rel="noopener">
-      <div class="tile-icon">📅</div>
-      <div class="tile-body">
-        <div class="tile-name">Google Calendar</div>
-        <div class="tile-desc">Schedule and stay organized</div>
-      </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-  </div>
+    </section>
 
-  <p class="section-label">Entertainment &amp; Media</p>
-  <div class="grid" id="media">
-    <a class="tile" href="https://www.youtube.com" target="_blank" rel="noopener">
-      <div class="tile-icon">▶️</div>
-      <div class="tile-body">
-        <div class="tile-name">YouTube</div>
-        <div class="tile-desc">Videos, tutorials, and entertainment</div>
+    <section>
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <p class="section-label">News &amp; Information</p>
       </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-    <a class="tile" href="https://open.spotify.com" target="_blank" rel="noopener">
-      <div class="tile-icon">🎵</div>
-      <div class="tile-body">
-        <div class="tile-name">Spotify</div>
-        <div class="tile-desc">Music, podcasts & audio content</div>
+      <div class="grid" id="news">
+        <a class="tile" href="https://news.google.com/home?hl=en-US&gl=US&ceid=US:en" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">📰</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Google News</div>
+          <div class="tile-desc">Global news coverage and journalism</div>
+        </a>
+        <a class="tile" href="https://news.ycombinator.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🔶</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Hacker News</div>
+          <div class="tile-desc">Tech news, startups &amp; thoughtful discussion</div>
+        </a>
+        <a class="tile" href="https://www.wikipedia.org" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">📖</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Wikipedia</div>
+          <div class="tile-desc">The free encyclopedia for everything</div>
+        </a>
+        <a class="tile" href="https://www.yahoo.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">❕</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Yahoo</div>
+          <div class="tile-desc">Web portal and search engine</div>
+        </a>
       </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-    <a class="tile" href="https://letterboxd.com" target="_blank" rel="noopener">
-      <div class="tile-icon">🎬</div>
-      <div class="tile-body">
-        <div class="tile-name">Letterboxd</div>
-        <div class="tile-desc">Movie journal and film discovery</div>
-      </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-    <a class="tile" href="https://www.goodreads.com" target="_blank" rel="noopener">
-      <div class="tile-icon">📚</div>
-      <div class="tile-body">
-        <div class="tile-name">Goodreads</div>
-        <div class="tile-desc">Track reads and discover new books</div>
-      </div>
-      <span class="tile-arrow">↗</span>
-    </a>
-  </div>
+    </section>
 
-  <footer>Edit the HTML to add your own sites &mdash; each tile takes just a few lines.</footer>
+    <section>
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <p class="section-label">Productivity &amp; Tools</p>
+      </div>
+      <div class="grid" id="tools">
+        <a class="tile" href="https://github.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🐙</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">GitHub</div>
+          <div class="tile-desc">Code repositories &amp; open-source projects</div>
+        </a>
+        <a class="tile" href="https://www.desmos.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">📈</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Desmos</div>
+          <div class="tile-desc">Notes, wikis, and project management</div>
+        </a>
+        <a class="tile" href="https://obsidian.md/" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">📓</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Obsidian</div>
+          <div class="tile-desc">Notes, wikis, and project management</div>
+        </a>
+        <a class="tile" href="https://calendar.google.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">📅</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Calendar</div>
+          <div class="tile-desc">Schedule and stay organized</div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <p class="section-label">AI &amp; ML</p>
+      </div>
+      <div class="grid" id="media">
+        <a class="tile" href="https://www.chatgpt.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">⚪</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">ChatGPT</div>
+          <div class="tile-desc">LLM for natural language processing</div>
+        </a>
+        <a class="tile" href="https://claude.ai/new" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🟠</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Claude</div>
+          <div class="tile-desc">AI assistant for advanced coding</div>
+        </a>
+        <a class="tile" href="https://gemini.google.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🟢</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Gemini</div>
+          <div class="tile-desc">AI-powered research</div>
+        </a>
+        <a class="tile" href="https://chat.deepseek.com/" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🟣</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">DeepSeek</div>
+          <div class="tile-desc">Efficient AI model</div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <p class="section-label">Entertainment &amp; Media</p>
+      </div>
+      <div class="grid" id="media">
+        <a class="tile" href="https://www.youtube.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">▶️</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">YouTube</div>
+          <div class="tile-desc">Videos, tutorials, and entertainment</div>
+        </a>
+        <a class="tile" href="https://open.spotify.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🎵</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Spotify</div>
+          <div class="tile-desc">Music, podcasts &amp; audio content</div>
+        </a>
+        <a class="tile" href="https://letterboxd.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🎬</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Letterboxd</div>
+          <div class="tile-desc">Movie journal and film discovery</div>
+        </a>
+        <a class="tile" href="https://www.goodreads.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">📚</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Goodreads</div>
+          <div class="tile-desc">Track reads and discover new books</div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <p class="section-label">Social</p>
+      </div>
+      <div class="grid" id="media">
+        <a class="tile" href="https://www.instagram.com/?hl=en" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">📷</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Instagram</div>
+          <div class="tile-desc">Social media platform</div>
+        </a>
+        <a class="tile" href="https://www.facebook.com/" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">👥</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Facebook</div>
+          <div class="tile-desc">Social network</div>
+        </a>
+        <a class="tile" href="https://twitter.com/" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🐦</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Twitter</div>
+          <div class="tile-desc">Social media platform</div>
+        </a>
+        <a class="tile" href="https://www.reddit.com/" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🤖</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Reddit</div>
+          <div class="tile-desc">Community-driven discussion platform</div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <p class="section-label">Google</p>
+      </div>
+      <div class="grid" id="media">
+        <a class="tile" href="https://drive.google.com" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">💾</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Drive</div>
+          <div class="tile-desc">Cloud storage and file sharing</div>
+        </a>
+        <a class="tile" href="https://mail.google.com/" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">✉️</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Gmail</div>
+          <div class="tile-desc">Email service</div>
+        </a>
+        <a class="tile" href="https://photos.google.com/" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">🖼️</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Photos</div>
+          <div class="tile-desc">Cloud-based photo storage and sharing</div>
+        </a>
+        <a class="tile" href="https://www.google.com/maps" target="_blank" rel="noopener">
+          <div class="tile-top">
+            <div class="tile-icon">📍</div>
+            <span class="tile-arrow">↗</span>
+          </div>
+          <div class="tile-name">Maps</div>
+          <div class="tile-desc">Online mapping and navigation service</div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="footer-label">Edit the HTML to add your own sites — each tile takes just a few lines.</span>
+  </footer>
+
+  <script>
+    /* ── Animated grid canvas ── */
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    const CELL = 40;
+    let W, H, cols, rows, pulses = [];
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+      cols = Math.ceil(W / CELL) + 1;
+      rows = Math.ceil(H / CELL) + 1;
+    }
+
+    function spawnPulse() {
+      pulses.push({
+        x: Math.floor(Math.random() * cols),
+        y: Math.floor(Math.random() * rows),
+        r: 0,
+        maxR: 5 + Math.random() * 7,
+        alpha: 0.45 + Math.random() * 0.3
+      });
+    }
+
+    function drawGrid() {
+      ctx.clearRect(0, 0, W, H);
+
+      /* static grid lines */
+      ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+      ctx.lineWidth = 1;
+      for (let c = 0; c <= cols; c++) {
+        ctx.beginPath(); ctx.moveTo(c * CELL, 0); ctx.lineTo(c * CELL, H); ctx.stroke();
+      }
+      for (let r = 0; r <= rows; r++) {
+        ctx.beginPath(); ctx.moveTo(0, r * CELL); ctx.lineTo(W, r * CELL); ctx.stroke();
+      }
+
+      /* intersection dots */
+      ctx.fillStyle = 'rgba(255,255,255,0.05)';
+      for (let c = 0; c <= cols; c++) {
+        for (let r = 0; r <= rows; r++) {
+          ctx.beginPath(); ctx.arc(c * CELL, r * CELL, 1, 0, Math.PI * 2); ctx.fill();
+        }
+      }
+    }
+
+    let lastSpawn = 0;
+    function loop(t) {
+      if (t - lastSpawn > 1600) { spawnPulse(); lastSpawn = t; }
+      drawGrid();
+      requestAnimationFrame(loop);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    spawnPulse();
+    requestAnimationFrame(loop);
+
+    /* ── Search / filter ── */
+    const input    = document.getElementById('search');
+    const tiles    = document.querySelectorAll('.tile');
+    const sections = document.querySelectorAll('section');
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      tiles.forEach(t => {
+        const match = !q || t.textContent.toLowerCase().includes(q);
+        t.style.display = match ? '' : 'none';
+      });
+      sections.forEach(sec => {
+        const anyVisible = [...sec.querySelectorAll('.tile')].some(t => t.style.display !== 'none');
+        sec.style.display = anyVisible ? '' : 'none';
+      });
+    });
+
+    /* "/" shortcut to focus search */
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && document.activeElement !== input) {
+        e.preventDefault(); input.focus();
+      }
+      if (e.key === 'Escape') { input.blur(); input.value = ''; input.dispatchEvent(new Event('input')); }
+    });
+  </script>
 
 </body>
 </html>
